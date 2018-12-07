@@ -16,6 +16,7 @@ const (
 	TypeExist
 	TypeNotExist
 	TypeInternal
+	TypeUnauthorized
 )
 
 type stackTracer interface {
