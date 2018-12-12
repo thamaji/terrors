@@ -17,6 +17,7 @@ const (
 	TypeNotExist
 	TypeInternal
 	TypeUnauthorized
+	TypeNotError
 )
 
 type stackTracer interface {
@@ -185,6 +186,10 @@ func Cause(err error) error {
 }
 
 func TypeOf(err error) Type {
+	if err == nil {
+		return TypeNotError
+	}
+
 	type typer interface {
 		Type() Type
 	}
